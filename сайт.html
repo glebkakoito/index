@@ -1,0 +1,557 @@
+ 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title> ИМЯ | Врач-косметолог</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff;
+            color: #2d2f36;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .logo, .doctor-name {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid #f0ebe4;
+            padding: 16px 0;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #9b7b5e;
+        }
+        .logo span {
+            font-weight: 400;
+            color: #2d2f36;
+        }
+
+        .nav {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2d2f36;
+            transition: 0.2s;
+        }
+        .nav a:hover {
+            color: #c49a6c;
+        }
+
+        .btn-header {
+            background: #9b7b5e;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+        .btn-header:hover {
+            background: #7f6248;
+            color: white !important;
+        }
+
+        /* buttons */
+        .btn-primary {
+            display: inline-block;
+            background: #9b7b5e;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary:hover {
+            background: #7f6248;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #9b7b5e;
+            color: #9b7b5e;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .btn-outline:hover {
+            background: #fef7f0;
+        }
+
+        /* hero */
+        .hero {
+            padding: 60px 0 80px 0;
+            background: linear-gradient(135deg, #fff8f0 0%, #ffffff 100%);
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1.2;
+        }
+        .hero-badge {
+            color: #c49a6c;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #2d2f36;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #5a5e6a;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 32px;
+        }
+        .stat-item {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #9b7b5e;
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #6f6f77;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 28px;
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.15);
+            object-fit: cover;
+            aspect-ratio: 3/4;
+        }
+
+        /* section titles */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #2d2f36;
+        }
+        .section-sub {
+            color: #8a8a94;
+            margin-bottom: 48px;
+            font-size: 1.05rem;
+            max-width: 600px;
+        }
+
+        /* about */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+        .about-grid {
+            display: flex;
+            gap: 56px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+        }
+        .about-text p {
+            margin-bottom: 20px;
+            color: #3a3e48;
+        }
+        .signature {
+            margin-top: 24px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #9b7b5e;
+        }
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        .about-image img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 32px;
+            box-shadow: 0 20px 30px -8px rgba(0,0,0,0.1);
+        }
+
+        /* services */
+        .services {
+            background: #fefaf5;
+            padding: 80px 0;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 20px;
+        }
+        .service-card {
+            background: white;
+            padding: 28px 24px;
+            border-radius: 28px;
+            transition: 0.25s;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            border: 1px solid #f0e8e0;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 28px -12px rgba(0,0,0,0.08);
+            border-color: #e3d6ca;
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 12px;
+        }
+        .service-desc {
+            color: #5a5e6a;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        .price {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #9b7b5e;
+            margin-top: 10px;
+        }
+
+        /* portfolio cases */
+        .cases {
+            padding: 80px 0;
+            background: white;
+        }
+        .cases-slider {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .case-item {
+            flex: 1;
+            min-width: 240px;
+            background: #fefaf5;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        .case-item img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            display: block;
+        }
+        .case-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .case-info p {
+            font-weight: 500;
+        }
+
+        /* reviews */
+        .reviews {
+            background: #fefaf5;
+            padding: 80px 0;
+        }
+        .reviews-grid {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .review-card {
+            background: white;
+            padding: 28px;
+            border-radius: 28px;
+            flex: 1;
+            min-width: 260px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #f0e4da;
+        }
+        .review-text {
+            font-style: italic;
+            color: #2d2f36;
+            margin-bottom: 20px;
+        }
+        .review-author {
+            font-weight: 700;
+            color: #9b7b5e;
+        }
+
+        /* consultation form */
+        .consult {
+            padding: 80px 0;
+            background: linear-gradient(120deg, #ffffff, #fef5ec);
+        }
+        .consult-grid {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .consult-info {
+            flex: 1;
+        }
+        .consult-info h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .consult-form {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 32px;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input, select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #e2d9d2;
+            border-radius: 60px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: #fff;
+        }
+        .consult-form button {
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        /* contacts & footer */
+        .contacts {
+            background: #2d2f36;
+            color: #eae6e0;
+            padding: 60px 0 40px;
+        }
+        .contacts .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .contacts a {
+            color: #d9c6b2;
+            text-decoration: none;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            font-size: 0.8rem;
+            border-top: 1px solid #4a4e58;
+            margin-top: 30px;
+        }
+        @media (max-width: 780px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .header .container { flex-direction: column; }
+            .nav { justify-content: center; }
+            .section-title { font-size: 1.9rem; }
+        }
+        .whatsapp-link {
+            background: #25D366;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 60px;
+            color: white;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">Анна <span>Волкова</span></div>
+            <div class="nav">
+                <a href="#about">Обо мне</a>
+                <a href="#services">Услуги</a>
+                <a href="#cases">Портфолио</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#consult" class="btn-header">Записаться</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">ВРАЧ-КОСМЕТОЛОГ, СТАЖ 12 ЛЕТ</div>
+                <h1>Верните молодость и здоровье вашей коже</h1>
+                <p>Индивидуальные программы ухода, аппаратная косметология и инъекционные методики. Доверьте свою красоту профессионалу.</p>
+                <a href="#consult" class="btn-primary">Записаться на консультацию →</a>
+                <div class="hero-stats">
+                    <div><span class="stat-item">2000+</span><br><span class="stat-label">довольных клиентов</span></div>
+                    <div><span class="stat-item">15+</span><br><span class="stat-label">сертификатов</span></div>
+                    <div><span class="stat-item">7 лет</span><br><span class="stat-label">частной практики</span></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Анна Волкова врач косметолог">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container about-grid">
+            <div class="about-text">
+                <h2 class="section-title">Анна Волкова — ваш эксперт в мире эстетической медицины</h2>
+                <p>Дипломированный врач-косметолог, дерматолог. Окончила Санкт-Петербургскую государственную медицинскую академию, регулярно повышаю квалификацию в ведущих клиниках Европы.</p>
+                <p>Моя философия — естественная красота и безопасность. Каждую процедуру подбираю индивидуально, использую только сертифицированные препараты и премиальное оборудование. Помогаю пациентам обрести уверенность без вреда для здоровья.</p>
+                <p><strong>Образование и сертификаты:</strong> Первая категория по дерматовенерологии, член Российского общества косметологов, более 30 курсов повышения квалификации.</p>
+                <div class="signature">— Анна Волкова, врач-косметолог</div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.pexels.com/photos/5214997/pexels-photo-5214997.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Кабинет косметолога">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Косметологические процедуры</h2>
+            <div class="section-sub">Только современные, доказавшие эффективность методики</div>
+            <div class="services-grid">
+                <div class="service-card"><div class="service-icon">✨</div><h3>Консультация врача-косметолога</h3><div class="service-desc">Диагностика кожи, подбор ухода, составление плана процедур.</div><div class="price">1 500 ₽</div></div>
+                <div class="service-card"><div class="service-icon">💧</div><h3>Биоревитализация</h3><div class="service-desc">Глубокое увлажнение, стимуляция выработки коллагена.</div><div class="price">от 12 000 ₽</div></div>
+                <div class="service-card"><div class="service-icon">⚡</div><h3>SMAS-лифтинг</h3><div class="service-desc">Подтяжка овала лица без операции.</div><div class="price">от 18 000 ₽</div></div>
+                <div class="service-card"><div class="service-icon">🍃</div><h3>Химические пилинги</h3><div class="service-desc">Выравнивание тона, борьба с акне, пигментацией.</div><div class="price">3 500 - 6 000 ₽</div></div>
+                <div class="service-card"><div class="service-icon">🌀</div><h3>RF-лифтинг</h3><div class="service-desc">Подтяжка и улучшение тургора кожи.</div><div class="price">5 500 ₽</div></div>
+                <div class="service-card"><div class="service-icon">💉</div><h3>Контурная пластика</h3><div class="service-desc">Коррекция морщин, скул, губ. Препараты Juvederm, Restylane.</div><div class="price">от 15 000 ₽</div></div>
+                <div class="service-card"><div class="service-icon">🧖‍♀️</div><h3>Уходовые программы</h3><div class="service-desc">Чистки, массаж лица, комплексный уход по типу кожи.</div><div class="price">4 500 ₽</div></div>
+                <div class="service-card"><div class="service-icon">🌟</div><h3>Лазерная шлифовка</h3><div class="service-desc">Устранение рубцов, постакне, морщин.</div><div class="price">10 000 ₽</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cases" class="cases">
+        <div class="container">
+            <h2 class="section-title">Результаты моих пациентов</h2>
+            <div class="section-sub">Реальные фото "до и после" процедур</div>
+            <div class="cases-slider">
+                <div class="case-item"><img src="https://images.pexels.com/photos/3756681/pexels-photo-3756681.jpeg?auto=compress&cs=tinysrgb&w=600" alt="до и после"><div class="case-info"><p>Коррекция носослезной борозды</p></div></div>
+                <div class="case-item"><img src="https://images.pexels.com/photos/3998406/pexels-photo-3998406.jpeg?auto=compress&cs=tinysrgb&w=600" alt="биоревитализация"><div class="case-info"><p>Биоревитализация, курс 2 процедур</p></div></div>
+                <div class="case-item"><img src="https://images.pexels.com/photos/5215001/pexels-photo-5215001.jpeg?auto=compress&cs=tinysrgb&w=600" alt="чистка лица"><div class="case-info"><p>Комплексная чистка + пилинг</p></div></div>
+            </div>
+            <div style="text-align: center; margin-top: 32px;"><em>*Фотографии опубликованы с согласия пациентов</em></div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы клиентов</h2>
+            <div class="reviews-grid">
+                <div class="review-card"><div class="review-text">«Анна Владимировна — профессионал с большой буквы! После курса биоревитализации кожа преобразилась, стала упругой и сияющей. Очень деликатный подход, всё объяснила.»</div><div class="review-author">— Екатерина, 38 лет</div></div>
+                <div class="review-card"><div class="review-text">«Делала SMAS-лифтинг — результат превзошёл ожидания. Овал лица подтянулся, выгляжу свежее. Спасибо за комфорт и отсутствие боли!»</div><div class="review-author">— Марина, 45 лет</div></div>
+                <div class="review-card"><div class="review-text">«Очень внимательный врач, подобрала домашний уход, избавились от акне и постакне. Рекомендую всем, кто ищет грамотного косметолога.»</div><div class="review-author">— Алина, 27 лет</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="consult" class="consult">
+        <div class="container consult-grid">
+            <div class="consult-info">
+                <h2>Запишитесь на консультацию</h2>
+                <p>Оставьте заявку, и я свяжусь с вами в течение 15 минут, чтобы подобрать удобное время для визита. Первичный осмотр и диагностика кожи.</p>
+                <p style="margin-top: 28px;"><strong>📍 Адрес:</strong> г. Новосибирск, ул. Ленина 15, кабинет 304<br>
+                <strong>📞 Телефон:</strong> +7 (913) 456-78-90<br>
+                <strong>⏰ Часы работы:</strong> Пн-Сб 10:00 – 20:00</p>
+                <a href="https://wa.me/79134567890?text=Здравствуйте! Хочу записаться на консультацию к Анне Волковой." class="whatsapp-link" style="margin-top: 20px; display: inline-flex;">💬 Написать в WhatsApp</a>
+            </div>
+            <div class="consult-form">
+                <form id="callbackForm">
+                    <div class="form-group"><input type="text" placeholder="Ваше имя" required></div>
+                    <div class="form-group"><input type="tel" placeholder="+7 (___) ___-__-__" required></div>
+                    <div class="form-group"><select><option>Интересующая услуга</option><option>Консультация</option><option>Инъекционные методики</option><option>Аппаратная косметология</option><option>Уходовые процедуры</option></select></div>
+                    <button type="submit" class="btn-primary">Отправить заявку</button>
+                    <p style="font-size: 0.7rem; margin-top: 16px; text-align: center;">Нажимая на кнопку, вы даете согласие на обработку персональных данных.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="contacts">
+        <div class="container">
+            <div><strong>Анна Волкова</strong><br>Врач-косметолог, дерматолог</div>
+            <div><strong>Контакты</strong><br>📞 +7 (913) 456-78-90<br>✉️ anna@cosmetology.ru<br>📍 Новосибирск, ул. Ленина 15</div>
+            <div><strong>Соцсети</strong><br><a href="#">Instagram</a>  <a href="#">Telegram</a>  <a href="#">WhatsApp</a></div>
+        </div>
+        <div class="footer-bottom">© 2026 Клиника косметологии Анны Волковой. Все права защищены. Информация на сайте не является публичной офертой.</div>
+    </footer>
+
+    <script>
+        document.getElementById('callbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо! Ваша заявка принята. Я свяжусь с вами в ближайшее время.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
